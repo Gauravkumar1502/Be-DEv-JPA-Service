@@ -1,0 +1,163 @@
+//{
+//    "id": 1,
+//    "title": "Two Sum",
+//    "difficulty": "EASY",
+//    "tags": "Array, Hash Table",
+//    "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+//    "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.",
+//    "constraints": "`2 <= nums.length <= 10^4`\n`-10^9 <= nums[i] <= 10^9`\n`-10^9 <= target <= 10^9`\n**Only one valid answer exists.**",
+//    "javaBoilerplateCode": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Your code here\n    }\n}",
+//    "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nint* twoSum(int* nums, int numsSize, int target, int* returnSize){\n    // Your code here\n}",
+//    "cppBoilerplateCode": "#include <vector>\n#include <unordered_map>\n\nstd::vector<int> twoSum(std::vector<int>& nums, int target) {\n    // Your code here\n}",
+//    "pythonBoilerplateCode": "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        # Your code here",
+//    "defaultInputs": "[2,7,11,15]\n9\n[3,2,4]\n6\n[3,3]\n6",
+//    "javaCode": "import java.util.*;\npublic class Problem1{\n            public static int[] twoSum(int[] nums, int target) {\n                Map<Integer, Integer> map = new HashMap<>();\n                for (int i = 0; i < nums.length; i++) {\n                    int complement = target - nums[i];\n                    if (map.containsKey(complement)) {\n                        return new int[] { map.get(complement), i };\n            }\n            map.put(nums[i], i);\n        }\n        throw new IllegalArgumentException(\"No two sum solution\");\n    }\n    public static void main(String[] args) {\n                try (Scanner reader = new Scanner(System.in)) {\n                    // read from console while there is input\n                    while (reader.hasNext()) {\n                        int[] nums = Arrays.stream(reader.nextLine().replace(\"[\", \"\").replace(\"]\", \"\").split(\",\")).mapToInt(Integer::parseInt).toArray();\n                int target = Integer.parseInt(reader.nextLine());\n                validateTestCase(nums, target);\n            }\n        }\n    }\n    public static void validateTestCase(int[] nums, int target) {\n                int[] expected = twoSum(nums, target);\n                int[] userOutput = new Solution().twoSum(nums, target);\n                System.out.println((\"Nums= \"+Arrays.toString(nums)+\"/nTarget= \"+target) + \"::\" + Arrays.toString(userOutput) + \"::\" + Arrays.toString(expected));\n    }\n}",
+//    "createdAt": "2024-04-08T16:04:37.000+00:00",
+//    "updatedAt": "2024-04-08T16:04:37.000+00:00",
+//    "extraInfo": "**Follow-up:** Can you come up with an algorithm that is less than `O(n2)` time complexity?",
+//    "hints": [
+//        {
+//            "id": 54,
+//            "hint": "A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations."
+//        },
+//        {
+//            "id": 55,
+//            "hint": "So, if we fix one of the numbers, say x, we have to scan the entire array to find the next number y which is value - x where value is the input parameter. Can we change our array somehow so that this search becomes faster?"
+//        },
+//        {
+//            "id": 56,
+//            "hint": "The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?"
+//        }
+//    ],
+//    "examples": [
+//        {
+//            "id": 77,
+//            "input": "[2,7,11,15]\n9",
+//            "output": "[0,1]",
+//            "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
+//        },
+//        {
+//            "id": 78,
+//            "input": "[3,2,4]\n6",
+//            "output": "[1,2]",
+//            "explanation": "Because nums[1] + nums[2] == 6, we return [1, 2]."
+//        },
+//        {
+//            "id": 79,
+//            "input": "[3,3]\n6",
+//            "output": "[0,1]",
+//            "explanation": "Because nums[0] + nums[1] == 6, we return [0, 1]."
+//        }
+//    ]
+//}
+
+[
+    {
+        "id": 1,
+        "title": "Two Sum",
+        "difficulty": "EASY",
+        "tags": "Array, Hash Table",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.",
+        "constraints": "`2 <= nums.length <= 10<sup>4</sup>`\n`-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>`\n`-10<sup>9</sup> <= target <= 10<sup>9</sup>`\n**Only one valid answer exists.**",
+        "javaBoilerplateCode": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Your code here\n    }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nint* twoSum(int* nums, int numsSize, int target, int* returnSize){\n    // Your code here\n}",
+        "cppBoilerplateCode": "#include <vector>\n#include <unordered_map>\n\nstd::vector<int> twoSum(std::vector<int>& nums, int target) {\n    // Your code here\n}",
+        "defaultInputs": "[2,7,11,15]\n9\n[3,2,4]\n6\n[3,3]\n6",
+        "javaCode": "import java.util.*;\npublic class Problem1{\n            public static int[] twoSum(int[] nums, int target) {\n                Map<Integer, Integer> map = new HashMap<>();\n                for (int i = 0; i < nums.length; i++) {\n                    int complement = target - nums[i];\n                    if (map.containsKey(complement)) {\n                        return new int[] { map.get(complement), i };\n            }\n            map.put(nums[i], i);\n        }\n        throw new IllegalArgumentException(\"No two sum solution\");\n    }\n    public static void main(String[] args) {\n                try (Scanner reader = new Scanner(System.in)) {\n                    // read from console while there is input\n                    while (reader.hasNext()) {\n                        int[] nums = Arrays.stream(reader.nextLine().replace(\"[\", \"\").replace(\"]\", \"\").split(\",\")).mapToInt(Integer::parseInt).toArray();\n                int target = Integer.parseInt(reader.nextLine());\n                validateTestCase(nums, target);\n            }\n        }\n    }\n    public static void validateTestCase(int[] nums, int target) {\n                int[] expected = twoSum(nums, target);\n                int[] userOutput = new Solution().twoSum(nums, target);\n                System.out.println((\"Nums= \"+Arrays.toString(nums)+\"/nTarget= \"+target) + \"::\" + Arrays.toString(userOutput) + \"::\" + Arrays.toString(expected));\n    }\n}",
+        "extraInfo":"**Follow-up:** Can you come up with an algorithm that is less than `O(n2)` time complexity?",
+        "hints": [
+            {
+                "hint": "A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations."
+            },
+            {
+                "hint": "So, if we fix one of the numbers, say x, we have to scan the entire array to find the next number y which is value - x where value is the input parameter. Can we change our array somehow so that this search becomes faster?"
+            },
+            {
+                "hint": "The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?"
+            }
+        ],
+        "examples": [
+            {
+                "input": "nums = [2,7,11,15], target = 9",
+                "output": "[0,1]",
+                "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
+            },
+            {
+                "input": "nums = [3,2,4], target = 6",
+                "output": "[1,2]",
+                "explanation": "Because nums[1] + nums[2] == 6, we return [1, 2]."
+            },
+            {
+                "input": "nums = [3,3], target = 6",
+                "output": "[0,1]",
+                "explanation": "Because nums[0] + nums[1] == 6, we return [0, 1]."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Add Two Numbers",
+        "difficulty": "MEDIUM",
+        "tags": "Linked List, Math, Recursion",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "You are given two `non-empty` linked lists representing two non-negative integers. The digits are stored in `reverse order`, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+        "constraints": "The number of nodes in each linked list is in the range `[1, 100]`\n`0 <= Node.val <= 9`\nIt is guaranteed that the list represents a number that does not have leading zeros.",
+        "javaBoilerplateCode": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n        \n    }\n}",
+        "c11BoilerplateCode": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     struct ListNode *next;\n * };\n */\nstruct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {\n    \n}",
+        "cppBoilerplateCode": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     ListNode *next;\n *     ListNode() : val(0), next(nullptr) {}\n *     ListNode(int x) : val(x), next(nullptr) {}\n *     ListNode(int x, ListNode *next) : val(x), next(next) {}\n * };\n */\nclass Solution {\npublic:\n    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {\n        \n    }\n};",
+        "javaCode": "import java.util.Arrays;\nimport java.util.Scanner;\npublic class Problem2{\n    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n        ListNode dummyHead = new ListNode(0);\n        ListNode p = l1, q = l2, curr = dummyHead;\n        int carry = 0;\n        while (p != null || q != null) {\n            int x = (p != null) ? p.val : 0;\n            int y = (q != null) ? q.val : 0;\n            int sum = carry + x + y;\n            carry = sum / 10;\n            curr.next = new ListNode(sum % 10);\n            curr = curr.next;\n            if (p != null) p = p.next;\n            if (q != null) q = q.next;\n        }\n        if (carry > 0) {\n            curr.next = new ListNode(carry);\n        }\n        return dummyHead.next;\n    }\n    public static void main(String[] args) {\n        try (Scanner reader = new Scanner(System.in)) {\n        // read from console while there is input\n            while (reader.hasNext()) {\n                int[] list1 = Arrays.stream(reader.nextLine().replace(\"[\", \"\").replace(\"]\", \"\").split(\",\")).mapToInt(Integer::parseInt).toArray();\n                int[] list2 = Arrays.stream(reader.nextLine().replace(\"[\", \"\").replace(\"]\", \"\").split(\",\")).mapToInt(Integer::parseInt).toArray();\n                ListNode l1Root = new ListNode();\n                ListNode l2Root = new ListNode();\n                ListNode l1 = l1Root;\n                ListNode l2 = l2Root;\n                for (int ele : list1) {\n                    l1Root.val = ele;\n                    l1Root.next = new ListNode();\n                    l1Root = l1Root.next;\n                }\n                for (int ele : list2) {\n                    l2Root.val = ele;\n                    l2Root.next = new ListNode();\n                    l2Root = l2Root.next;\n                }\n                validateTestCase(l1, l2);\n            }\n        }\n    }\n    public static void validateTestCase(ListNode l1, ListNode l2) {\n        ListNode expected = addTwoNumbers(l1, l2);\n        ListNode userOutput = new Solution().addTwoNumbers(l1, l2);\n        System.out.println(\"L1 = \"+l1+\"/nL2 = \"+l2+\"::\"+expected+\"::\"+userOutput);\n    }\n}\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode() {}\n    ListNode(int val) { this.val = val; }\n    ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n    public String toString() {\n        StringBuilder sb = new StringBuilder(\"[\");\n        ListNode temp = this;\n        while (temp != null) {\n            sb.append(temp.val).append(\",\");\n            temp = temp.next;\n        }\n        sb.deleteCharAt(sb.length()-1);\n        return sb.toString()+\"]\";\n    }\n}",
+        "defaultInputs": "[2,4,3]\n[5,6,4]\n[0]\n[0]\n[9,9,9,9,9,9,9]\n[9,9,9,9]",
+        "hints": [],
+        "examples": [
+            {
+                "input": "l1 = [2,4,3], l2 = [5,6,4]",
+                "output": "[7,0,8]",
+                "explanation": "342 + 465 = 807."
+            },
+            {
+                "input": "l1 = [0], l2 = [0]",
+                "output": "[0]"
+            },
+            {
+                "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]",
+                "output": "[8,9,9,9,0,0,0,1]"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Longest Substring Without Repeating Characters",
+        "difficulty": "MEDIUM",
+        "tags": "Hash Table, String, Sliding Window",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given a string s, find the length of the longest substring without repeating characters.",
+        "constraints": "`0 <= s.length <= 5 * 10^4`\n`s` consists of English letters, digits, symbols and spaces.\n",
+        "javaBoilerplateCode": "class Solution {\npublic int lengthOfLongestSubstring(String s) {\n  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nint lengthOfLongestSubstring(char* s){\n    // Your code here\n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\nint lengthOfLongestSubstring(string s){\n    // Your code here\n}}",
+        "pythonBoilerplateCode": "class Solution:\n    def lengthOfLongestSubstring(self, s: str) -> int:        # Your code here",
+        "javaCode": "",
+        "createdAt": "2024-04-08T16:04:37.000+00:00",
+        "updatedAt": "2024-04-08T16:04:37.000+00:00",
+        "defaultInputs": "abcabcbb\nnbbbbb\nnpwwkew",
+        "hints": [],
+        "examples": [
+            {
+                "input": "abcabcbb",
+                "output": "3",
+                "explanation": "The answer is `abc`, with the length of 3."
+            },
+            {
+                "input": "bbbbb",
+                "output": "1",
+                "explanation": "The answer is `b`, with the length of 1."
+            },
+            {
+                "input": "pwwkew",
+                "output": "3",
+                "explanation": "The answer is `wke`, with the length of 3.Notice that the answer must be a substring, pwke is a subsequence and not a substring."
+            }
+        ]
+    }
+]
