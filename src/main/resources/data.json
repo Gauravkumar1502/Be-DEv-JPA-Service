@@ -1,56 +1,3 @@
-//{
-//    "id": 1,
-//    "title": "Two Sum",
-//    "difficulty": "EASY",
-//    "tags": "Array, Hash Table",
-//    "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
-//    "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.",
-//    "constraints": "`2 <= nums.length <= 10^4`\n`-10^9 <= nums[i] <= 10^9`\n`-10^9 <= target <= 10^9`\n**Only one valid answer exists.**",
-//    "javaBoilerplateCode": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Your code here\n    }\n}",
-//    "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nint* twoSum(int* nums, int numsSize, int target, int* returnSize){\n    // Your code here\n}",
-//    "cppBoilerplateCode": "#include <vector>\n#include <unordered_map>\n\nstd::vector<int> twoSum(std::vector<int>& nums, int target) {\n    // Your code here\n}",
-//    "pythonBoilerplateCode": "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        # Your code here",
-//    "defaultInputs": "[2,7,11,15]\n9\n[3,2,4]\n6\n[3,3]\n6",
-//    "javaCode": "import java.util.*;\npublic class Problem1{\n            public static int[] twoSum(int[] nums, int target) {\n                Map<Integer, Integer> map = new HashMap<>();\n                for (int i = 0; i < nums.length; i++) {\n                    int complement = target - nums[i];\n                    if (map.containsKey(complement)) {\n                        return new int[] { map.get(complement), i };\n            }\n            map.put(nums[i], i);\n        }\n        throw new IllegalArgumentException(\"No two sum solution\");\n    }\n    public static void main(String[] args) {\n                try (Scanner reader = new Scanner(System.in)) {\n                    // read from console while there is input\n                    while (reader.hasNext()) {\n                        int[] nums = Arrays.stream(reader.nextLine().replace(\"[\", \"\").replace(\"]\", \"\").split(\",\")).mapToInt(Integer::parseInt).toArray();\n                int target = Integer.parseInt(reader.nextLine());\n                validateTestCase(nums, target);\n            }\n        }\n    }\n    public static void validateTestCase(int[] nums, int target) {\n                int[] expected = twoSum(nums, target);\n                int[] userOutput = new Solution().twoSum(nums, target);\n                System.out.println((\"Nums= \"+Arrays.toString(nums)+\"/nTarget= \"+target) + \"::\" + Arrays.toString(userOutput) + \"::\" + Arrays.toString(expected));\n    }\n}",
-//    "createdAt": "2024-04-08T16:04:37.000+00:00",
-//    "updatedAt": "2024-04-08T16:04:37.000+00:00",
-//    "extraInfo": "**Follow-up:** Can you come up with an algorithm that is less than `O(n2)` time complexity?",
-//    "hints": [
-//        {
-//            "id": 54,
-//            "hint": "A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations."
-//        },
-//        {
-//            "id": 55,
-//            "hint": "So, if we fix one of the numbers, say x, we have to scan the entire array to find the next number y which is value - x where value is the input parameter. Can we change our array somehow so that this search becomes faster?"
-//        },
-//        {
-//            "id": 56,
-//            "hint": "The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?"
-//        }
-//    ],
-//    "examples": [
-//        {
-//            "id": 77,
-//            "input": "[2,7,11,15]\n9",
-//            "output": "[0,1]",
-//            "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
-//        },
-//        {
-//            "id": 78,
-//            "input": "[3,2,4]\n6",
-//            "output": "[1,2]",
-//            "explanation": "Because nums[1] + nums[2] == 6, we return [1, 2]."
-//        },
-//        {
-//            "id": 79,
-//            "input": "[3,3]\n6",
-//            "output": "[0,1]",
-//            "explanation": "Because nums[0] + nums[1] == 6, we return [0, 1]."
-//        }
-//    ]
-//}
-
 [
     {
         "id": 1,
@@ -157,6 +104,375 @@
                 "input": "pwwkew",
                 "output": "3",
                 "explanation": "The answer is `wke`, with the length of 3.Notice that the answer must be a substring, pwke is a subsequence and not a substring."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Median of Two Sorted Arrays",
+        "difficulty": "HARD",
+        "tags": "ArrayBinary, SearchDivide, Conquer",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.\n\nThe overall run time complexity should be O(log (m+n)).",
+        "constraints": "`nums1.length == m`\n`nums2.length == n`\n`0 <= m <= 1000`\n`0 <= n <= 1000`\n`1 <= m + n <= 2000`\n`-106 <= nums1[i], nums2[i] <= 106`",
+        "javaBoilerplateCode": "class Solution {\npublic double findMedianSortedArrays(int[] nums1, int[] nums2){\n  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\ndouble findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size){\n    // Your code here\n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\ndouble findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {\n    // Your code here\n}}",
+        "pythonBoilerplateCode": "class Solution:\n    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:        # Your code here",
+        "javaCode": "",
+        "createdAt": "2024-04-08T16:04:37.000+00:00",
+        "updatedAt": "2024-04-08T16:04:37.000+00:00",
+        "defaultInputs": "[1,3]\n[2]\n[1,2]\n[3,4]",
+        "hints": [],
+        "examples": [
+            {
+                "input": "nums1 = [1,3], nums2 = [2]",
+                "output": "2.00000",
+                "explanation": "merged array = [1,2,3] and median is 2."
+            },
+            {
+                "input": "nums1 = [1,2], nums2 = [3,4]",
+                "output": "2.50000",
+                "explanation": "merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Longest Palindromic Substring",
+        "difficulty": "MEDIUM",
+        "tags": "StringDynamic, Programming",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given a string s, return the longest palindromic substring in s.",
+        "constraints": "`1 <= s.length <= 1000`\n`s consist of only digits and English letters.`",
+        "javaBoilerplateCode": "class Solution {\npublic String longestPalindrome(String s) {\n  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nchar* longestPalindrome(char* s){\n    // Your code here\n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\nstring longestPalindrome(string s) {\n    // Your code here\n}}",
+        "pythonBoilerplateCode": "class Solution:\n    def longestPalindrome(self, s: str) -> str:        # Your code here",
+        "javaCode": "",
+        "createdAt": "2024-04-08T16:04:37.000+00:00",
+        "updatedAt": "2024-04-08T16:04:37.000+00:00",
+        "defaultInputs": "babad\ncbbd",
+        "hints": [
+            {"hint":"How can we reuse a previously computed palindrome to compute a larger palindrome?"},
+            {"hint":"If “aba” is a palindrome, is “xabax” a palindrome? Similarly is “xabay” a palindrome?"},
+            {"hint":"Complexity based hint:\nIf we use brute-force and check whether for every start and end position a substring is a palindrome we have O(n^2) start - end pairs and O(n) palindromic checks. Can we reduce the time for palindromic checks to O(1) by reusing some previous computation."}
+        ],
+        "examples": [
+            {
+                "input": "nums1 = [1,3], nums2 = [2]",
+                "output": "2.00000",
+                "explanation": "merged array = [1,2,3] and median is 2."
+            },
+            {
+                "input": "nums1 = [1,2], nums2 = [3,4]",
+                "output": "2.50000",
+                "explanation": "merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Reverse Integer",
+        "difficulty": "MEDIUM",
+        "tags": "Math",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
+        "constraints": "`-2^31 <= x <= 2^31 - 1`",
+        "javaBoilerplateCode": "class Solution {\npublic int reverse(int x) {\n  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nint reverse(int x){\n    // Your code here\n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\nint reverse(int x) {\n    // Your code here\n}}",
+        "pythonBoilerplateCode": "class Solution:\n    def reverse(self, x: int) -> int:        # Your code here",
+        "javaCode":"",
+        "defaultInputs": "babad\ncbbd",
+        "hints": [],
+        "examples": [
+            {
+                "input": "123",
+                "output": "321",
+                "explanation":""
+            },
+            {
+                "input": "-123",
+                "output": "-321",
+                "explanation":""
+            },
+            {
+                "input": "120",
+                "output": "21",
+                "explanation":""
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Palindrome Number",
+        "difficulty": "EASY",
+        "tags": "Math",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given an integer x, return true if x is a palindrome, and false otherwise.",
+        "constraints": "`-2^31 <= x <= 2^31 - 1`",
+        "javaBoilerplateCode": "class Solution {\npublic boolean isPalindrome(int x) {\n  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nbool isPalindrome(int x){\n    // Your code here\n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\nbool isPalindrome(int x) {\n    // Your code here\n}}",
+        "pythonBoilerplateCode": "class Solution:\n    def isPalindrome(self, x: int) -> bool:        # Your code here",
+        "javaCode":"",
+        "defaultInputs": "121\n-121\n10",
+        "hints": [
+            {"hint":"Beware of overflow when you reverse the integer."}
+        ],
+        "examples": [
+            {
+                "input": "121",
+                "output": "true",
+                "explanation": "121 reads as 121 from left to right and from right to left."
+            },
+            {
+                "input": "-121",
+                "output": "false",
+                "explanation": "From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome."
+            },
+            {
+                "input": "10",
+                "output": "false",
+                "explanation": "Reads 01 from right to left. Therefore it is not a palindrome."
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Regular Expression Matching",
+        "difficulty": "HARD",
+        "tags": "String, Dynamic Programming, Recursion",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:\n`'.' Matches any single character.​​​​`\n`'*' Matches zero or more of the preceding element.`\nThe matching should cover the entire input string (not partial).",
+        "constraints": "`1 <= s.length <= 20`\n`1 <= p.length <= 20\ns contains only lowercase English letters.`\n`p contains only lowercase English letters, '.', and '*'.`\n`It is guaranteed for each appearance of the character '*', there will be a previous valid character to match`",
+        "javaBoilerplateCode": "class Solution {\npublic boolean isMatch(String s, String p) {\n  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nbool isMatch(char* s, char* p){\n    // Your code here\n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\nbool isMatch(string s, string p) {\n    // Your code here\n}}",
+        "pythonBoilerplateCode": "class Solution:\n    def isMatch(self, s: str, p: str) -> bool:        # Your code here",
+        "javaCode":"",
+        "defaultInputs": "aa\na\naa\na*\nab\n.*",
+        "hints": [],
+        "examples": [
+            {
+                "input": "s = `aa`, p = `a`",
+                "output": "false",
+                "explanation": "Explanation: `a` does not match the entire string `aa`."
+            },
+            {
+                "input": "s = `aa`, p = `a*`",
+                "output": "true",
+                "explanation": "`*` means zero or more of the preceding element, `a`. Therefore, by repeating `a` once, it becomes `aa`."
+            },
+            {
+                "input": "s = `ab`, p = `.*`",
+                "output": "true",
+                "explanation": "`.*` means `zero or more (*) of any character (.)`."
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Remove Nth Node From End of List",
+        "difficulty": "MEDIUM",
+        "tags": "Linked List, Two Pointers",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given the head of a linked list, remove the nth node from the end of the list and return its head.",
+        "constraints": "`The number of nodes in the list is sz.`\n`1 <= sz <= 30`\n`0 <= Node.val <= 100`\n`1 <= n <= s`",
+        "javaBoilerplateCode": "class Solution {\npublic ListNode removeNthFromEnd(ListNode head, int n) {\n/**\n* Definition for singly-linked list.\n* public class ListNode {\n*     int val;\n*     ListNode next;\n*     ListNode() {}\n*     ListNode(int val) { this.val = val; }\n*     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n* }\n*/  }\n}",
+        "c11BoilerplateCode": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct ListNode* removeNthFromEnd(struct ListNode* head, int n){\n    // Your code here\n/**\n* Definition for singly-linked list.\n* struct ListNode {\n*     int val;\n*     struct ListNode *next;\n* };\n*/}",
+        "cppBoilerplateCode": "class Solution {\npublic:\nListNode* removeNthFromEnd(ListNode* head, int n) {\n    // Your code here\n/**\n* Definition for singly-linked list.\n* struct ListNode {\n*     int val;\n*     ListNode *next;\n*     ListNode() : val(0), next(nullptr) {}\n*     ListNode(int x) : val(x), next(nullptr) {}\n*     ListNode(int x, ListNode *next) : val(x), next(next) {}\n* };\n*/}}",
+        "pythonBoilerplateCode": "# Definition for singly-linked list.\n class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\nclass Solution:\n    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:        # Your code here",
+        "javaCode":"",
+        "defaultInputs": "[1,2,3,4,5]\n2\n[1]\n1\n[1,2]\n1",
+        "hints": [
+            {"hint":"Maintain two pointers and update one with a delay of n steps."}
+        ],
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5], n = 2",
+                "output": "[1,2,3,5]",
+                "explanation":""
+            },
+            {
+                "input": "head = [1], n = 1",
+                "output": "[]",
+                "explanation":""
+            },
+            {
+                "input": "head = [1,2], n = 1",
+                "output": "[1]",
+                "explanation":""
+            }
+        ]
+    },
+    {
+        "id":10,
+        "title": "Integer to Roman",
+        "difficulty": "MEDIUM",
+        "tags": "Hash Table,  Math, String",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Roman numerals are represented by seven different symbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`. For example, `2` is written as `II` in Roman numeral, just two one's added together. `12` is written as `XII`, which is simply `X + II`. The number `27` is written as `XXVII`, which is `XX + V + II`.\nRoman numerals are usually written largest to smallest from left to right. However, the numeral for four is not `IIII`. Instead, the number four is written as `IV`. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as `IX`. There are six instances where subtraction is used:\nI can be placed before `V` (5) and `X` (10) to make 4 and 9. \n`X` can be placed before `L` (50) and `C` (100) to make 40 and 90. \n`C` can be placed before `D` (500) and `M` (1000) to make 400 and 900.",
+        "constraints": "`1 <= num <= 3999`",
+        "javaBoilerplateCode": "class Solution {\n    public String intToRoman(int num) {\n        \n    }\n}",
+        "c11BoilerplateCode": "char* intToRoman(int num) {\n    \n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\n    string intToRoman(int num) {\n        \n    }\n};",
+        "pythonBoilerplateCode": "class Solution:\n    def intToRoman(self, num: int) -> str:",
+        "javaCode":"",
+        "defaultInputs": "3\n58\n1994",
+        "hints": [],
+        "examples": [
+            {
+                "input": "num = 3",
+                "output": "III",
+                "explanation":"3 is represented as 3 ones."
+            },
+            {
+                "input": "num = 58",
+                "output": "LVIII",
+                "explanation":"L = 50, V = 5, III = 3."
+            },
+            {
+                "input": "num = 1994",
+                "output": "MCMXCIV",
+                "explanation":"M = 1000, CM = 900, XC = 90 and IV = 4."
+            }
+        ]
+    },
+    {
+        "id":11,
+        "title": "Letter Combinations of a Phone Number",
+        "difficulty": "MEDIUM",
+        "tags": "Hash Table, String, Backtracking",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.\nA mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.",
+        "constraints": "`0 <= digits.length <= 4`\n`digits[i]` is a digit in the range `['2', '9']`.",
+        "javaBoilerplateCode": "class Solution {\n    public List<String> letterCombinations(String digits) {\n        \n    }\n}",
+        "c11BoilerplateCode": "/**\n * Note: The returned array must be malloced, assume caller calls free().\n */\nchar** letterCombinations(char* digits, int* returnSize) {\n    \n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\n    vector<string> letterCombinations(string digits) {\n        \n    }\n};",
+        "pythonBoilerplateCode": "class Solution:\n    def letterCombinations(self, digits: str) -> List[str]:",
+        "javaCode":"",
+        "defaultInputs": "\"23\"\n\"\"\n\"2\"",
+        "hints": [],
+        "examples": [
+            {
+                "input": "digits = \"23\"",
+                "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+                "explanation":""
+            },
+            {
+                "input": "digits = \"\"",
+                "output": "[]",
+                "explanation":""
+            },
+            {
+                "input": "digits = \"2\"",
+                "output": "[\"a\",\"b\",\"c\"]",
+                "explanation":""
+            }
+        ]
+    },
+    {
+        "id":12,
+        "title": "Merge k Sorted Lists",
+        "difficulty": "HARD",
+        "tags": "Hash Table, String, Backtracking",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order.\nMerge all the linked-lists into one sorted linked-list and return it.",
+        "constraints": "`k == lists.length`\n`0 <= k <= 10^4`\n`0 <= lists[i].length <= 500`\n`-10^4 <= lists[i][j] <= 10^4`\n`lists[i]` is sorted in ascending order.\nThe sum of `lists[i].length` will not exceed `10^4`.",
+        "javaBoilerplateCode": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode mergeKLists(ListNode[] lists) {\n        \n    }\n}",
+        "c11BoilerplateCode": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     struct ListNode *next;\n * };\n */\nstruct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {\n    \n}",
+        "cppBoilerplateCode": "/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode() : val(0), next(nullptr) {} *     ListNode(int x) : val(x), next(nullptr) {} *     ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */class Solution {public:    ListNode* mergeKLists(vector<ListNode*>& lists) {            }};",
+        "pythonBoilerplateCode": "",
+        "javaCode":"",
+        "defaultInputs": "[[1,4,5],[1,3,4],[2,6]]\n[]\n[[]]",
+        "hints": [],
+        "examples": [
+            {
+                "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+                "output": "[1,1,2,3,4,4,5,6]",
+                "explanation":"The linked-lists are:\n[\n  1->4->5,\n  1->3->4,\n  2->6\n]\nmerging them into one sorted list:\n1->1->2->3->4->4->5->6"
+            },
+            {
+                "input": "lists = []",
+                "output": "[]",
+                "explanation":""
+            },
+            {
+                "input": "lists = [[]]",
+                "output": "[]",
+                "explanation":""
+            }
+        ]
+    },
+    {
+        "id":13,
+        "title": "Remove Duplicates from Sorted Array",
+        "difficulty": "EASY",
+        "tags": "Array, Two Pointers",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "Given an integer array `nums` sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in `nums`.\nConsider the number of unique elements of `nums` to be `k`, to get accepted, you need to do the following things:\nChange the array `nums` such that the first `k` elements of `nums` contain the unique elements in the order they were present in `nums` initially. The remaining elements of `nums` are not important as well as the size of `nums`.\nReturn `k`.",
+        "constraints": "`1 <= nums.length <= 3 * 10^4`\n`-100 <= nums[i] <= 100`\n`nums` is sorted in non-decreasing order.",
+        "javaBoilerplateCode": "class Solution {\n    public int removeDuplicates(int[] nums) {\n        \n    }\n}",
+        "c11BoilerplateCode": "int removeDuplicates(int* nums, int numsSize) {\n    \n}",
+        "cppBoilerplateCode": "class Solution {\npublic:\n    int removeDuplicates(vector<int>& nums) {\n        \n    }\n};",
+        "pythonBoilerplateCode": "",
+        "javaCode":"",
+        "defaultInputs": "[1,1,2]\n[0,0,1,1,1,2,2,3,3,4]\n[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]",
+        "hints": [
+            {"hint":"In this problem, the key point to focus on is the input array being sorted. As far as duplicate elements are concerned, what is their positioning in the array when the given array is sorted? Look at the image below for the answer. If we know the position of one of the elements, do we also know the positioning of all the duplicate elements?"},
+            {"hint":"We need to modify the array in-place and the size of the final array would potentially be smaller than the size of the input array. So, we ought to use a two-pointer approach here. One, that would keep track of the current element in the original array and another one for just the unique elements."},
+            {"hint":"Essentially, once an element is encountered, you simply need to bypass its duplicates and move on to the next unique element."}
+        ],
+        "examples": [
+            {
+                "input": "nums = [1,1,2]",
+                "output": "2, nums = [1,2,_]",
+                "explanation":"Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.\nIt does not matter what you leave beyond the returned k (hence they are underscores)."
+            },
+            {
+                "input": "nums = [0,0,1,1,1,2,2,3,3,4]",
+                "output": "5, nums = [0,1,2,3,4,_,_,_,_,_]",
+                "explanation":"Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.\nIt does not matter what you leave beyond the returned k (hence they are underscores)."
+            },
+            {
+                "input": "[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]",
+                "output": "4,nums = [1, 2, 3, 4, _, _, _, _, _, _]",
+                "explanation":""
+            }
+        ]
+    },
+    {
+        "id":15,
+        "title": "Binary Tree Maximum Path Sum",
+        "difficulty": "HARD",
+        "tags": "Dynamic Programming, TreeDepth-First, SearchBinary Tree",
+        "companies": "Google, Facebook, Amazon, Microsoft, Apple, Bloomberg, Uber, Adobe",
+        "description": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.\nThe path sum of a path is the sum of the node's values in the path.\nGiven the `root` of a binary tree, return the maximum path sum of any non-empty path.",
+        "constraints": "The number of nodes in the tree is in the range `[1, 3 * 10^4]`.\n`-1000 <= Node.val <= 1000`",
+        "javaBoilerplateCode": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public int maxPathSum(TreeNode root) {\n        \n    }\n}",
+        "c11BoilerplateCode": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     struct TreeNode *left;\n *     struct TreeNode *right;\n * };\n */\nint maxPathSum(struct TreeNode* root) {\n    \n}",
+        "cppBoilerplateCode": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int maxPathSum(TreeNode* root) {\n        \n    }\n};",
+        "pythonBoilerplateCode": "",
+        "javaCode":"",
+        "defaultInputs": "[1,2,3]\n[-10,9,20,null,null,15,7]",
+        "hints": [],
+        "examples": [
+            {
+                "input": "root = [1,2,3]",
+                "output": "6",
+                "explanation":"The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6."
+            },
+            {
+                "input": "root = [-10,9,20,null,null,15,7]",
+                "output": "42",
+                "explanation":"The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42."
+            },
+            {
+                "input": "root=[-5,9,20,null,null,15,7]",
+                "output": "42",
+                "explanation":""
             }
         ]
     }
