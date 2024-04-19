@@ -22,6 +22,11 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok("Test successful");
+    }
+
     @PostMapping("/add")
     public ResponseEntity<String> addQuestion(@RequestBody Question question) {
         try {
