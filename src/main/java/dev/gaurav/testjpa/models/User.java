@@ -41,9 +41,9 @@ public class User {
         String username;
         @Column(name = "email", nullable = false, unique = true, columnDefinition = "varchar(100)")
         String email;
-        @Column(name = "password_salt", nullable = false, columnDefinition = "blob")
+        @Column(name = "password_salt", nullable = false, columnDefinition = "bytea")
         byte[] passwordSalt;
-        @Column(name = "password_hash", nullable = false, columnDefinition = "blob")
+        @Column(name = "password_hash", nullable = false, columnDefinition = "bytea")
         byte[] passwordHash;
         @Column(name = "name", nullable = false, columnDefinition = "varchar(100)")
         String name;
@@ -70,7 +70,7 @@ public class User {
         String avatarUrl;
         @Column(name = "created_at", nullable = false, columnDefinition = "timestamp default current_timestamp")
         Timestamp createdAt;
-        @Column(name = "updated_at", columnDefinition = "timestamp default current_timestamp on update current_timestamp")
+        @Column(name = "updated_at", columnDefinition = "timestamp default current_timestamp")
         Timestamp updatedAt;
         @Column(name = "last_login", columnDefinition = "timestamp default current_timestamp")
         Timestamp lastLogin;
