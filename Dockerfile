@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17-slim
-COPY --from=build /target/*.jar /app.jar
+COPY --from=build /target/*.jar /BeDev.jar
 EXPOSE 8080
 CMD ["java", "-jar", "/BeDev.jar"]
